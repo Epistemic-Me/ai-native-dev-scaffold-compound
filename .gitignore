@@ -1,0 +1,32 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor directories
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Dependencies (if you add any)
+node_modules/
+
+# Build output (if applicable)
+dist/
+build/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Compound loop (per-builder overrides)
+.stakeholders.json
+
+# Python
+__pycache__/
+*.pyc

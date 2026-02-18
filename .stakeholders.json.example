@@ -1,0 +1,20 @@
+{
+  "definitions": {
+    "Alice": {
+      "email": "alice@example.com",
+      "app_id": "my-project",
+      "role": "tech-lead",
+      "self_model_id": null
+    },
+    "Bob": {
+      "email": "bob@example.com",
+      "app_id": "my-project",
+      "role": "product-manager",
+      "self_model_id": null
+    }
+  },
+  "weights": {
+    "Alice": {"weight_source": "technical_health", "base_weight": 0.50},
+    "Bob":   {"weight_source": "product_health",   "base_weight": 0.50}
+  }
+}
