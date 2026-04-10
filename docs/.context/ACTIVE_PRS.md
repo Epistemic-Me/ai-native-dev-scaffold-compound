@@ -32,5 +32,5 @@ This moves the PR from "Open PRs" to "Recently Merged" and completes documentati
 
 All PR documentation lives in `docs/prs/{date}-PR-{num}-{slug}/`:
 - `RESEARCH.md` - Problem exploration and options
-- `PLAN.md` - Implementation strategy
+- `IMPLEMENTATION-PLAN.md` - Implementation strategy
 - `IMPLEMENTATION.md` - What was actually built

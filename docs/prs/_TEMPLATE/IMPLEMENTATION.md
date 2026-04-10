@@ -1,7 +1,7 @@
 # PR #XXX: {slug} - Implementation
 
 **Status**: In Progress
-**Based on**: [PLAN.md](./PLAN.md)
+**Based on**: [IMPLEMENTATION-PLAN.md](./IMPLEMENTATION-PLAN.md)
 
 ## Summary
 
