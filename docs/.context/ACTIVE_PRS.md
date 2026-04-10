@@ -24,7 +24,7 @@ This creates a paper trail folder and adds an entry here.
 
 ### Closing a PR
 ```
-/project:close-pr {number}
+/project:review-pr {number}
 ```
 This moves the PR from "Open PRs" to "Recently Merged" and completes documentation.
 

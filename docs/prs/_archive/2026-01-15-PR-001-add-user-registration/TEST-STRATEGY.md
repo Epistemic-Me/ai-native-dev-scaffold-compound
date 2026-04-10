@@ -26,4 +26,4 @@
 - [x] Tests pass locally
 - [x] Tests pass in CI
 - [x] No P0 regressions
-- [x] IMPLEMENTATION-IMPLEMENTATION-PLAN.md verification checklist complete
+- [x] IMPLEMENTATION-PLAN.md verification checklist complete

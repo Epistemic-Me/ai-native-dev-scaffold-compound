@@ -1,6 +1,6 @@
 # Execute PR
 
-Implement the plan with progress tracking. This is the "code" phase — you've already filled RESEARCH.md, TEST-STRATEGY.md, and IMPLEMENTATION-IMPLEMENTATION-PLAN.md. Now execute.
+Implement the plan with progress tracking. This is the "code" phase — you've already filled RESEARCH.md, TEST-STRATEGY.md, and IMPLEMENTATION-PLAN.md. Now execute.
 
 ## Arguments
 
@@ -13,7 +13,7 @@ Example: `/project:execute-pr 042`
 Before running this command, ensure these docs are filled:
 1. **RESEARCH.md** — problem understood, options considered, recommendation made
 2. **TEST-STRATEGY.md** — acceptance criteria defined, test matrix mapped
-3. **IMPLEMENTATION-IMPLEMENTATION-PLAN.md** — step-by-step implementation mapped to ACs
+3. **IMPLEMENTATION-PLAN.md** — step-by-step implementation mapped to ACs
 
 If any are empty, stop and fill them first. The thinking happens BEFORE this command.
 
@@ -31,16 +31,16 @@ If found in `implementing/`: resume where we left off.
 
 ### 2. Verify docs are ready
 
-Check that IMPLEMENTATION-IMPLEMENTATION-PLAN.md has:
+Check that IMPLEMENTATION-PLAN.md has:
 - A scope section (in/out)
 - Implementation steps
 - A definition of done or verification checklist
 
 If incomplete, tell the user what's missing and stop.
 
-### 3. Implement from IMPLEMENTATION-IMPLEMENTATION-PLAN.md
+### 3. Implement from IMPLEMENTATION-PLAN.md
 
-- Read IMPLEMENTATION-IMPLEMENTATION-PLAN.md step by step
+- Read IMPLEMENTATION-PLAN.md step by step
 - Create a task list (TodoWrite) from the implementation steps
 - Execute each task:
   - Write the code

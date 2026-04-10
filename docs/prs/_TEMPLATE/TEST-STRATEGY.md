@@ -1,6 +1,6 @@
 # Test Strategy
 
-> Fill this SECOND — after RESEARCH.md, before IMPLEMENTATION-IMPLEMENTATION-PLAN.md.
+> Fill this SECOND — after RESEARCH.md, before IMPLEMENTATION-PLAN.md.
 > Define what "done" looks like BEFORE writing code.
 > If you can't fill this, you don't understand the problem yet — go back to RESEARCH.md.
 
@@ -26,4 +26,4 @@
 - [ ] Tests pass locally
 - [ ] Tests pass in CI
 - [ ] No P0 regressions
-- [ ] IMPLEMENTATION-IMPLEMENTATION-PLAN.md verification checklist complete
+- [ ] IMPLEMENTATION-PLAN.md verification checklist complete

@@ -167,7 +167,7 @@ When all phases are done:
    1. Complete manual testing
    2. Run `/hl:commit` to create commits
    3. Run `/hl:describe_pr` to update PR description
-   4. Run `/project:close-pr {number}` when merged
+   4. Run `/project:review-pr {number}` when merged
    ```
 
 ## Important Guidelines
