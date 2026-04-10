@@ -165,7 +165,7 @@ Once aligned on approach:
 
 After structure approval:
 
-1. **Write the plan** to `docs/plans/YYYY-MM-DD-description.md` or `docs/prs/{date}-PR-{num}-{slug}/PLAN.md`
+1. **Write the plan** to `docs/plans/YYYY-MM-DD-description.md` or `docs/prs/{date}-PR-{num}-{slug}/IMPLEMENTATION-PLAN.md`
    - Format: `YYYY-MM-DD-description.md` where:
      - YYYY-MM-DD is today's date
      - description is a brief kebab-case description

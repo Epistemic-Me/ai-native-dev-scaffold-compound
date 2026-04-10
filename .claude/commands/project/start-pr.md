@@ -73,7 +73,7 @@ Example usage: `/project:start-pr 036 feature-name`
 - [ ] {Questions to answer before planning}
 ```
 
-5. **Create PLAN.md** with this template:
+5. **Create IMPLEMENTATION-PLAN.md** with this template:
 
 ```markdown
 # PR #{num}: {slug} - Plan
@@ -138,7 +138,7 @@ Example usage: `/project:start-pr 036 feature-name`
 # PR #{num}: {slug} - Implementation
 
 **Status**: In Progress
-**Based on**: [PLAN.md](./PLAN.md)
+**Based on**: [IMPLEMENTATION-PLAN.md](./IMPLEMENTATION-PLAN.md)
 **Branch**: `feature/pr-{num}-{slug}`
 **GitHub PR**: {to be filled when PR created}
 
@@ -265,7 +265,7 @@ Example usage: `/project:start-pr 036 feature-name`
 
    Next steps:
    1. Fill in RESEARCH.md with problem statement
-   2. Complete PLAN.md with implementation details
+   2. Complete IMPLEMENTATION-PLAN.md with implementation details
    3. Run /project:implement-pr {num} to implement
    4. Or run /project:execute-pr {num} for full lifecycle
    ```

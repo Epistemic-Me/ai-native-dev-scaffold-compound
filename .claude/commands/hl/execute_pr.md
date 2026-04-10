@@ -4,7 +4,7 @@ description: Execute implementation from PR paper trail
 
 # Execute PR
 
-You are tasked with implementing the work described in a PR paper trail. This command reads the RESEARCH.md and PLAN.md documents and executes the implementation.
+You are tasked with implementing the work described in a PR paper trail. This command reads the RESEARCH.md and IMPLEMENTATION-PLAN.md documents and executes the implementation.
 
 ## Initial Response
 
@@ -12,7 +12,7 @@ When this command is invoked:
 
 1. **If a PR number or path was provided**:
    - Find the PR folder in `docs/prs/` matching the PR number
-   - Read RESEARCH.md and PLAN.md FULLY
+   - Read RESEARCH.md and IMPLEMENTATION-PLAN.md FULLY
    - Begin the implementation process
 
 2. **If no parameters provided**, respond with:
@@ -33,24 +33,24 @@ Then wait for the user's input.
 1. **Find and read the PR paper trail**:
    - Locate `docs/prs/*-PR-{number}-*/`
    - Read RESEARCH.md completely - understand the problem and chosen solution
-   - Read PLAN.md completely - understand the implementation approach
+   - Read IMPLEMENTATION-PLAN.md completely - understand the implementation approach
    - Check if IMPLEMENTATION.md has any existing progress
 
 2. **Verify readiness**:
    - RESEARCH.md should have a clear recommendation
-   - PLAN.md should have defined phases and success criteria
+   - IMPLEMENTATION-PLAN.md should have defined phases and success criteria
    - If either is incomplete, inform the user:
      ```
      The PR paper trail appears incomplete:
      - RESEARCH.md: [Complete/Missing sections]
-     - PLAN.md: [Complete/Missing sections]
+     - IMPLEMENTATION-PLAN.md: [Complete/Missing sections]
 
      Would you like me to help complete these first?
      ```
 
 ### Step 2: Create Implementation Plan
 
-1. **Extract implementation phases from PLAN.md**:
+1. **Extract implementation phases from IMPLEMENTATION-PLAN.md**:
    - List all phases and their scope
    - Identify dependencies between phases
    - Note success criteria for each phase
@@ -67,7 +67,7 @@ Then wait for the user's input.
    ## PR #{number}: {title}
 
    **Problem**: [Summary from RESEARCH.md]
-   **Approach**: [Summary from PLAN.md]
+   **Approach**: [Summary from IMPLEMENTATION-PLAN.md]
 
    **Phases to implement**:
    1. [Phase 1] - [Description]
@@ -75,7 +75,7 @@ Then wait for the user's input.
    3. [Phase 3] - [Description]
 
    **Success criteria**:
-   - [Criteria from PLAN.md]
+   - [Criteria from IMPLEMENTATION-PLAN.md]
 
    Ready to begin with Phase 1?
    ```
@@ -94,7 +94,7 @@ For each phase:
    ```
 
 2. **Implement the changes**:
-   - Follow the technical design from PLAN.md
+   - Follow the technical design from IMPLEMENTATION-PLAN.md
    - Use existing patterns from RESEARCH.md findings
    - Make incremental, testable changes
 
@@ -129,7 +129,7 @@ As implementation progresses:
    - Learnings discovered
 
 2. **Track progress**:
-   - Check off completed items in PLAN.md
+   - Check off completed items in IMPLEMENTATION-PLAN.md
    - Update todo list status
    - Note any blockers or issues
 
@@ -167,14 +167,14 @@ When all phases are done:
    1. Complete manual testing
    2. Run `/hl:commit` to create commits
    3. Run `/hl:describe_pr` to update PR description
-   4. Run `/project:close-pr {number}` when merged
+   4. Run `/project:review-pr {number}` when merged
    ```
 
 ## Important Guidelines
 
 1. **Follow the paper trail**:
    - The RESEARCH.md contains important context and decisions
-   - The PLAN.md defines the agreed-upon approach
+   - The IMPLEMENTATION-PLAN.md defines the agreed-upon approach
    - Don't deviate without discussing first
 
 2. **Incremental progress**:

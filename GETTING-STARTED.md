@@ -151,7 +151,7 @@ SPRINT_CONTEXT_MAP = {
 
 If credentials are configured, the PR lifecycle commands will offer to run the compound loop:
 
-- `/project:close-pr` asks before finalizing
+- `/project:review-pr` asks before finalizing
 - `/project:execute-pr` includes it as Phase 7
 
 ### Manual

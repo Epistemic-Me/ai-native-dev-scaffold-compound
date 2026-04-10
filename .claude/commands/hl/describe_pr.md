@@ -20,7 +20,7 @@ You are tasked with generating a comprehensive pull request description followin
 
 3. **Check for existing PR paper trail:**
    - Look for `docs/prs/*-PR-{number}-*/` folder
-   - If it exists, read RESEARCH.md, PLAN.md, and IMPLEMENTATION.md
+   - If it exists, read RESEARCH.md, IMPLEMENTATION-PLAN.md, and IMPLEMENTATION.md
    - Use this context to enrich the PR description
 
 4. **Gather comprehensive PR information:**
