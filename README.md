@@ -1,12 +1,26 @@
-# AI-Native Development Scaffold + Compound Loop
+# AI-Native Development Scaffold — Run Stage
 
-> Same 3 commands as Walk. `review-pr` just does more behind the scenes.
+> The compounding loop: decisions feed forward, customer signal reshapes context, episodic memory persists across sessions.
 
 ```
-/start-pr  →  /execute-pr  →  /review-pr
+Walk:  /start-pr  →  develop  →  /review-pr  →  /check-pr  →  /close-pr
+Run:                              ↳ /stakeholder-alignment + /compound (automatic)
+                                  ↳ /process-transcript (out-of-band after research)
 ```
 
-This is the **Run** scaffold (Level 3-4). It extends [Walk](https://github.com/Epistemic-Me/ai-native-dev-scaffold) with stakeholder alignment scoring and compound self-model integration via the Clarity API.
+This is the **Run** stage of the Crawl → Walk → Run AI-native maturity staircase. It extends the Walk scaffold with stakeholder alignment scoring, compound self-model integration via the Clarity API, and transcript processing that feeds customer signal back into `docs/.context/`.
+
+## You Are Here: Crawl / Walk / Run
+
+AI-native development is a three-stage maturity staircase. The compounding value at Run is only unlockable if Crawl and Walk are solid.
+
+| Stage | What it is | Scaffold repo |
+|---|---|---|
+| **Crawl** | Context Foundation: `CLAUDE.md`, `docs/.context/` core set, `MCP_SERVERS.md`, credential policy. No PR workflow yet. | `ai-native-dev-scaffold-crawl` *(coming soon)* |
+| **Walk** | Paper Trail + Gate: Crawl + 5-stage PR lifecycle + docs-gate CI + ADR index. | [`ai-native-dev-scaffold`](https://github.com/Epistemic-Me/ai-native-dev-scaffold) |
+| **Run** *(← you are here)* | Compounding Intelligence: Walk + `/stakeholder-alignment` + `/compound` + `/process-transcript` + self-model API. | `ai-native-dev-scaffold-compound` (this repo) |
+
+**Don't start here.** Clone the Walk scaffold first, run it for 2 sprints until the PR lifecycle and docs-gate feel native, then graduate to this repo when you're ready to close the compounding loop. Running without a real context foundation means the loop compounds bad assumptions.
 
 ---
 
