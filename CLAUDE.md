@@ -5,7 +5,7 @@ This project is the **Run** stage of the Crawl → Walk → Run AI-native maturi
 ## You Are Here: Crawl / Walk / Run
 
 - **Crawl** — Context Foundation: `CLAUDE.md`, `docs/.context/` core set, `docs/.context/MCP_SERVERS.md`, credential policy. No PR workflow. See `ai-native-dev-scaffold-crawl` *(coming soon)*.
-- **Walk** — Paper Trail + Gate: Crawl + 5-stage PR lifecycle + docs-gate CI + ADR index. See `ai-native-dev-scaffold`.
+- **Walk** — Paper Trail + Gate: Crawl + 5-stage PR lifecycle + docs-gate CI + ADR index. See `ai-native-dev-scaffold-walk`.
 - **Run** — Compounding Intelligence *(← you are here)*: Walk + `/project:stakeholder-alignment` + `/project:compound` + `/project:process-transcript` + self-model API integration. This is where the loop closes: decisions feed forward, customer signal reshapes context docs, episodic memory persists across sessions.
 
 **Don't skip Crawl or Walk.** Running without the context foundation means the compounding loop compounds bad assumptions. 95% of enterprise AI pilots fail here (MIT NANDA, 2025).

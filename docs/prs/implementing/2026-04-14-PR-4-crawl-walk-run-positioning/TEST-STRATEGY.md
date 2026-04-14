@@ -25,12 +25,12 @@
 | T8 | CLAUDE.md | You Are Here staircase | AC4 | grep "You Are Here" |
 | T9 | README.md | Title contains Run Stage | AC5 | `head -1 README.md | grep -q "Run"` |
 | T10 | README.md | Don't-start-here warning | AC5 | grep "Don't start here" |
-| T11 | README.md | Links to sibling scaffolds | AC5 | grep "ai-native-dev-scaffold" (non-compound) |
+| T11 | README.md | Links to sibling scaffolds | AC5 | grep "ai-native-dev-scaffold-walk" (non-compound) |
 | T12 | CI | Docs-gate passes | AC6 | GitHub Actions green check |
 
 ## Definition of Done
 
 - [ ] All 6 acceptance criteria verified
 - [ ] CI docs-gate green
-- [ ] Sibling PR #8 in `ai-native-dev-scaffold` merged first (recommended, not blocking)
+- [ ] Sibling PR #8 in `ai-native-dev-scaffold-walk` merged first (recommended, not blocking)
 - [ ] No behavior changes — only documentation

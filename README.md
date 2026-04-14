@@ -17,8 +17,8 @@ AI-native development is a three-stage maturity staircase. The compounding value
 | Stage | What it is | Scaffold repo |
 |---|---|---|
 | **Crawl** | Context Foundation: `CLAUDE.md`, `docs/.context/` core set, `MCP_SERVERS.md`, credential policy. No PR workflow yet. | `ai-native-dev-scaffold-crawl` *(coming soon)* |
-| **Walk** | Paper Trail + Gate: Crawl + 5-stage PR lifecycle + docs-gate CI + ADR index. | [`ai-native-dev-scaffold`](https://github.com/Epistemic-Me/ai-native-dev-scaffold) |
-| **Run** *(← you are here)* | Compounding Intelligence: Walk + `/stakeholder-alignment` + `/compound` + `/process-transcript` + self-model API. | `ai-native-dev-scaffold-compound` (this repo) |
+| **Walk** | Paper Trail + Gate: Crawl + 5-stage PR lifecycle + docs-gate CI + ADR index. | [`ai-native-dev-scaffold-walk`](https://github.com/Epistemic-Me/ai-native-dev-scaffold-walk) |
+| **Run** *(← you are here)* | Compounding Intelligence: Walk + `/stakeholder-alignment` + `/compound` + `/process-transcript` + self-model API. | `ai-native-dev-scaffold-run` (this repo) |
 
 **Don't start here.** Clone the Walk scaffold first, run it for 2 sprints until the PR lifecycle and docs-gate feel native, then graduate to this repo when you're ready to close the compounding loop. Running without a real context foundation means the loop compounds bad assumptions.
 
@@ -28,7 +28,7 @@ AI-native development is a three-stage maturity staircase. The compounding value
 
 ```bash
 # 1. Clone and reinitialize
-git clone https://github.com/Epistemic-Me/ai-native-dev-scaffold-compound.git my-project
+git clone https://github.com/Epistemic-Me/ai-native-dev-scaffold-run.git my-project
 cd my-project
 rm -rf .git && git init && git add -A && git commit -m "init: scaffold"
 

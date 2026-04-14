@@ -42,7 +42,7 @@ Out of scope:
 
 ### Step 4: README.md (AC5)
 - Change title to "AI-Native Development Scaffold — Run Stage"
-- Add "You Are Here" table linking to `ai-native-dev-scaffold-crawl` and `ai-native-dev-scaffold`
+- Add "You Are Here" table linking to `ai-native-dev-scaffold-crawl` and `ai-native-dev-scaffold-walk`
 - Include explicit "Don't start here. Clone the Walk scaffold first..." warning
 
 ## Verification Checklist
