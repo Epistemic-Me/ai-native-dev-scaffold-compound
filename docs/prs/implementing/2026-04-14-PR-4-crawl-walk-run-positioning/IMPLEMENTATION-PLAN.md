@@ -14,7 +14,7 @@ In scope:
 Out of scope:
 - Any command file changes
 - pr_docs_check.py or CI workflow
-- `ai-native-dev-scaffold-crawl` creation (tracked in DAY-46)
+- `ai-native-dev-scaffold-walk` creation (tracked in DAY-46)
 
 ## Files Summary
 
@@ -42,7 +42,7 @@ Out of scope:
 
 ### Step 4: README.md (AC5)
 - Change title to "AI-Native Development Scaffold — Run Stage"
-- Add "You Are Here" table linking to `ai-native-dev-scaffold-crawl` and `ai-native-dev-scaffold-walk`
+- Add "You Are Here" table linking to `ai-native-dev-scaffold-walk` and `ai-native-dev-scaffold-run`
 - Include explicit "Don't start here. Clone the Walk scaffold first..." warning
 
 ## Verification Checklist

@@ -2,7 +2,7 @@
 
 > Works with **any project management tool** — Linear, Jira, Shortcut, GitHub Issues. The workflow is PM-tool-agnostic.
 >
-> **Repos**: [Walk (Level 1-2)](https://github.com/Epistemic-Me/ai-native-dev-scaffold-walk) | [Run (Level 3-4)](https://github.com/Epistemic-Me/ai-native-dev-scaffold-run)
+> **Repos**: [Walk (Level 1-2)](https://github.com/Epistemic-Me/ai-native-dev-scaffold-run) | [Run (Level 3-4)](https://github.com/Epistemic-Me/ai-native-dev-scaffold-sprint)
 
 ---
 
@@ -20,7 +20,7 @@ This guide covers the PR workflow, repo structure, documentation system, CI/CD g
 
 ```bash
 # Clone the scaffold
-git clone https://github.com/Epistemic-Me/ai-native-dev-scaffold-walk.git my-project
+git clone https://github.com/Epistemic-Me/ai-native-dev-scaffold-run.git my-project
 cd my-project && rm -rf .git && git init && git add -A && git commit -m "init"
 
 # Start your first PR
@@ -1395,4 +1395,4 @@ At Run level (Level 3-4), also runs before step 4:
 
 ---
 
-*Last updated: 2026-04-10. Ships with [ai-native-dev-scaffold-walk](https://github.com/Epistemic-Me/ai-native-dev-scaffold-walk).*
+*Last updated: 2026-04-10. Ships with [ai-native-dev-scaffold-run](https://github.com/Epistemic-Me/ai-native-dev-scaffold-run).*
