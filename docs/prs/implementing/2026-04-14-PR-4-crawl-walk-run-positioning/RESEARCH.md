@@ -1,7 +1,7 @@
 # RESEARCH: Reposition scaffold as Run stage of Crawl/Walk/Run
 
 **Linear**: [DAY-46](https://linear.app/epistemicme/issue/DAY-46)
-**Predecessor**: DAY-32 (AI-Native PR Workflow Slide Deck v1 for Dayforce stakeholders)
+**Predecessor**: DAY-32 (AI-Native PR Workflow Slide Deck v1 for an enterprise software company stakeholders)
 **Sibling PR**: `ai-native-dev-scaffold-run` PR #8
 
 ## Requirements Analysis
