@@ -32,7 +32,7 @@ Out of scope:
 - Include Context Declaration template
 
 ### Step 2: CLAUDE.md (AC2, AC4)
-- Replace header with "Run stage of Crawl → Walk → Run" framing
+- Replace header with "Run stage of Walk → Run → Sprint" framing
 - Add "You Are Here" staircase table
 - Rewrite lifecycle section to show Walk 5 stages + Run 3 additions layering onto `/review-pr`
 

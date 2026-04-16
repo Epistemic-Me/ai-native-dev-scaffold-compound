@@ -7,7 +7,7 @@
 | AC1 | `docs/.context/MCP_SERVERS.md` exists with Walk baseline (Linear, Playwright, GitHub) + Run additions (Self-Model API, transcript ingestion) |
 | AC2 | `CLAUDE.md` shows Walk 5-stage lifecycle + Run 3-command additions (`/stakeholder-alignment`, `/compound`, `/process-transcript`) |
 | AC3 | `CLAUDE.md` includes Credential Policy section with customer-PII emphasis |
-| AC4 | `CLAUDE.md` top contains "You Are Here" Crawl/Walk/Run staircase |
+| AC4 | `CLAUDE.md` top contains "You Are Here" Walk/Run/Sprint staircase |
 | AC5 | `README.md` title includes "Run Stage", "You Are Here" table with sibling scaffold links, and explicit "don't start here without Walk maturity" warning |
 | AC6 | Docs-gate CI continues to pass (this PR's own docs folder satisfies RESEARCH/TEST-STRATEGY/IMPLEMENTATION-PLAN) |
 

@@ -1,4 +1,4 @@
-# RESEARCH: Reposition scaffold as Run stage of Crawl/Walk/Run
+# RESEARCH: Reposition scaffold as Run stage of Walk/Run/Sprint
 
 **Linear**: [DAY-46](https://linear.app/epistemicme/issue/DAY-46)
 **Predecessor**: DAY-32 (AI-Native PR Workflow Slide Deck v1 for an enterprise software company stakeholders)
@@ -8,7 +8,7 @@
 
 DAY-32 framed the maturity model as Walk/Run and collapsed the real Clarity-API lifecycle into a fictional "3-command loop". Feedback from stakeholder prep: this skips the context engineering foundation that's the #1 differentiator for AI-native vs AI-augmented. MIT NANDA 2025 found 95% of enterprise AI pilots fail due to the "learning gap" (missing organizational context), not model quality.
 
-The v2 deck reframes the maturity model as **Crawl → Walk → Run**, dimensioned across **People / Process / Tools**. This PR repositions `ai-native-dev-scaffold-sprint` as the **Run** stage — the compounding intelligence layer that adds stakeholder alignment, self-model episodes, and transcript processing on top of a Walk foundation.
+The v2 deck reframes the maturity model as **Walk → Run → Sprint**, dimensioned across **People / Process / Tools**. This PR repositions `ai-native-dev-scaffold-sprint` as the **Run** stage — the compounding intelligence layer that adds stakeholder alignment, self-model episodes, and transcript processing on top of a Walk foundation.
 
 ## Current State Analysis
 
@@ -22,7 +22,7 @@ The Run scaffold already has:
 What's missing:
 - `docs/.context/MCP_SERVERS.md` including Run-specific servers (Self-Model API, transcript ingestion)
 - Credential policy section in CLAUDE.md (with extra emphasis on customer PII at Run)
-- "You Are Here" Crawl/Walk/Run positioning
+- "You Are Here" Walk/Run/Sprint positioning
 - Explicit warning that users should not start here without Walk maturity first
 
 ## Implementation Gap Analysis

@@ -94,7 +94,7 @@ python scripts/compound.py init
 Blocking: RESEARCH.md, TEST-STRATEGY.md, IMPLEMENTATION-PLAN.md, REVIEW.md (Approve verdict), STAKEHOLDER-ALIGNMENT.md (aggregate score).
 Advisory: compound_extract.json, stakeholder scores below 0.3.
 
-## Credential Policy (Crawl-stage foundation)
+## Credential Policy (Walk-stage foundation)
 
 This repo treats tool access and secrets as **context that must be declared**, not tribal knowledge. Agents and new engineers read this policy before touching anything. At the Run stage this matters even more — the self-model API and transcript ingestion handle sensitive customer data.
 
