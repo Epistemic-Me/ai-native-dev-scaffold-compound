@@ -1,125 +1,133 @@
-# AI-Native Development Scaffold + Compound Loop
+# AI-Native Development Scaffold — Sprint Stage
 
-> Same 3 commands as Walk. `review-pr` just does more behind the scenes.
+> **AI-native with the customer voice baked into every PR.** Run baseline + digital twins of external stakeholders + stakeholder-alignment scoring + transcript processing + self-model API integration.
 
 ```
-/start-pr  →  /execute-pr  →  /review-pr
+Walk:   /start-pr  →  develop  →  /review-pr  →  /check-pr  →  /close-pr
+Run:    + docs/specs/ + product slop filter + /compound (internal)
+Sprint: + /stakeholder-alignment (external twins) + /process-transcript + self-model API
 ```
 
-This is the **Run** scaffold (Level 3-4). It extends [Walk](https://github.com/Epistemic-Me/ai-native-dev-scaffold) with stakeholder alignment scoring and compound self-model integration via the Clarity API.
+This is the **Sprint** stage of a Walk → Run → Sprint AI-native maturity staircase. It extends the Run scaffold with digital twins of external stakeholders (customers, user personas, architects, domain experts), so every PR is scored against the actual voice of the people it's supposed to serve.
 
----
+This is where AI-native stops being a productivity tool and becomes a structural advantage.
+
+## You Are Here: Walk / Run / Sprint
+
+| Stage | What it is | Scaffold repo |
+|---|---|---|
+| **Walk** | Context foundation + 5-stage PR lifecycle + docs-gate CI. The operational baseline. | [`ai-native-dev-scaffold-walk`](https://github.com/Epistemic-Me/ai-native-dev-scaffold-walk) |
+| **Run** | Walk + authoritative feature specs + product slop filter + `/compound` from internal PR history. | [`ai-native-dev-scaffold-run`](https://github.com/Epistemic-Me/ai-native-dev-scaffold-run) |
+| **Sprint** *(← you are here)* | Run + external stakeholder digital twins + `/stakeholder-alignment` + `/process-transcript` + self-model API. Customer voice scored into every PR. | `ai-native-dev-scaffold-sprint` (this repo) |
+
+**Don't start here.** Sprint's compounding value is only unlockable if Walk and Run are solid. Running the compound loop on a broken foundation compounds bad assumptions.
+
+## What Sprint adds beyond Run
+
+### Digital twins of external stakeholders
+
+A **digital twin** is a persistent, queryable model of a person built from real interactions — meeting transcripts, emails, decision history — not a made-up persona.
+
+At Sprint stage, you maintain twins for:
+- **Customers** (especially enterprise customers with evolving requirements)
+- **Product strategists** (VPs, architects who weigh in on cross-team decisions)
+- **Domain experts** (compliance, accessibility, security, performance)
+- **Key developers** whose time is hard to get (senior ICs, busy architects)
+
+Twins are stored as structured belief statements with evidence (transcript excerpts, email links, decision logs). They update as new interactions happen.
+
+### `/project:stakeholder-alignment`
+
+On every PR before merge, score the change against relevant stakeholder twins:
+
+```bash
+/project:stakeholder-alignment 142
+# For each stakeholder twin relevant to this PR:
+#   - Compute alignment score (0.0-1.0)
+#   - Generate per-stakeholder rationale from their belief statements
+#   - Flag conflicts (e.g., "accessibility twin scores 0.3 — this PR lacks keyboard nav")
+# Writes STAKEHOLDER-ALIGNMENT.md to the PR docs folder
+```
+
+Aggregate score below threshold blocks merge. Per-stakeholder below 0.3 is advisory but triggers a conversation. **This is also the product slop filter mechanism** — a feature that scores low against the product strategy twin gets rejected before code is written.
+
+### `/project:compound`
+
+Extracts PR episodes to the Clarity self-model API (not just local). Enables:
+- Cross-repo episode queries ("have we solved this in any other repo?")
+- Prediction-outcome tracking on ADRs
+- Longitudinal alignment trends per stakeholder
+- Monthly `COMPOUND_REPORT.md` with observation context states
+
+### `/project:process-transcript`
+
+Ingest a customer interview or stakeholder meeting transcript:
+
+```bash
+/project:process-transcript path/to/transcript.txt --twin customer-acme
+# Extracts belief statements with evidence
+# Updates the twin's belief database
+# Generates proposed diffs to docs/.context/JTBD.md and docs/.context/ICP.md
+# Team reviews and merges the updates
+```
+
+This is the loop that keeps context docs evidence-backed, not PM-guessed.
+
+### Customer twin for implementation handoff (Services Transformation use case)
+
+For customer-facing engagements where requirements evolve across sales → implementation → config validation → production, a **customer twin** captures:
+- Stated requirements from the sales conversation
+- Decisions made during implementation
+- Audit trail of changes of mind (with reasons)
+- Post-implementation feedback
+
+Every handoff step references the twin. 80% of the context that gets lost in emails and Slack now lives in a queryable structure.
+
+This use case applies to any configuration-driven implementation (not just code). Same workflow, different deliverable.
+
+## You Are Here: Walk / Run / Sprint
+
+This scaffold ships everything in Walk + everything in Run + the Sprint additions above.
 
 ## Quick Start
 
 ```bash
 # 1. Clone and reinitialize
-git clone https://github.com/Epistemic-Me/ai-native-dev-scaffold-compound.git my-project
+git clone https://github.com/Epistemic-Me/ai-native-dev-scaffold-sprint.git my-project
 cd my-project
-rm -rf .git && git init && git add -A && git commit -m "init: scaffold"
+rm -rf .git && git init && git add -A && git commit -m "init: sprint scaffold"
 
-# 2. Set up Clarity API (optional — graceful skip if missing)
+# 2. Set up Clarity API (required for Sprint features)
 cp .env.example .env
 # Fill in: CLARITY_API_KEY, CLARITY_USER_ID, CLARITY_API_URL
 
-# 3. Start your first PR
+# 3. Initialize your self-model
+python scripts/compound.py init
+
+# 4. Define stakeholders for this repo
+cp .stakeholders.json.example .stakeholders.json
+# Add twin IDs for the people whose voice matters
+
+# 5. Start your first PR — stakeholder-alignment runs automatically in /review-pr
 /project:start-pr 001 my-first-feature
 ```
 
----
+## Design Principle: Walker Floor, Sprinter Ceiling
 
-## Walk vs Run: What's Different
+Sprint is the ceiling, not the floor. Most engineers at your org will live in Walk. A subset will graduate to Run when institutional memory becomes the constraint. Only the teams doing the highest-leverage work (executive-visible initiatives, customer-facing services, cross-domain migrations) need to be at Sprint.
 
-| | Walk (Level 1-2) | Run (Level 3-4) |
-|---|---|---|
-| **Commands** | Same 3 | Same 3 |
-| **review-pr** | AI review → gate → merge | AI review → **stakeholder alignment** → **compound** → gate → merge |
-| **Artifacts per PR** | 5 | 7 (+STAKEHOLDER-ALIGNMENT.md, +compound_extract.json) |
-| **CI gate** | Docs exist | Docs exist + review verdict + stakeholder score |
-| **API required** | No | Yes (Clarity API) — graceful skip if missing |
-| **Learning** | Paper trail | Paper trail + **compounding organizational knowledge** |
+Don't push everyone here. Let the capability emerge where it's needed.
 
-The dev experience is identical. The system does more behind the scenes.
+## GitHub Copilot Compatibility
 
----
+The `.claude/commands/` markdown files work with any AI harness that reads command definitions. The Clarity self-model API is tool-agnostic — it's an HTTP API. You can call it from Copilot CLI, Copilot Cloud Agents, Claude Code, or a custom tool.
 
-## The 3 Commands
+## References
 
-### `/project:start-pr {num} {slug}`
-Same as Walk. Creates branch + docs folder with templates.
+- **MIT NANDA — GenAI Divide 2025**: 95% pilot failure root cause is the learning gap. https://fortune.com/2025/08/18/mit-report-95-percent-generative-ai-pilots-at-companies-failing-cfo/
+- **Clarity self-model**: Epistemic Me's backend for stakeholder twins + episodic memory
+- **GitHub — Continuous AI**: https://github.blog/ai-and-ml/automate-repository-tasks-with-github-agentic-workflows/
 
-### `/project:execute-pr {num}`
-Same as Walk. Reads IMPLEMENTATION-PLAN.md, implements step by step.
+## License
 
-**Before running**, fill docs in order:
-1. **RESEARCH.md** — Understand the problem
-2. **TEST-STRATEGY.md** — Define acceptance criteria
-3. **IMPLEMENTATION-PLAN.md** — Plan mapped to ACs
-
-### `/project:review-pr {num}` (Enhanced)
-
-```
-1. AI code review → REVIEW.md (same as Walk)
-2. Stakeholder alignment (auto) → STAKEHOLDER-ALIGNMENT.md
-3. Compound extraction (auto) → compound_extract.json
-4. Enhanced docs-gate check
-5. If approved → merge → compound sync → archive → close
-```
-
-Steps 2-3 happen automatically. If `CLARITY_API_KEY` is not set, they're skipped gracefully and you get Walk-level behavior.
-
----
-
-## What Run Adds
-
-### Stakeholder Alignment
-Every PR is scored against digital twin stakeholders via the Clarity API. Each twin "observes" the PR from their role's perspective and scores alignment to their goals.
-
-### Compound Self-Model
-Every merged PR becomes an episode in your team's self-model — organizational learning that compounds over time. The system tracks what was decided, what changed, and what was learned.
-
-### Additional Commands
-
-| Command | Purpose |
-|---------|---------|
-| `/project:stakeholder-alignment` | Run alignment scoring manually |
-| `/project:compound` | Run extraction/sync manually |
-| `/project:context-status` | Documentation health report |
-
-### Power-User Commands (in `.claude/commands/hl/`)
-20+ additional commands: `create-plan`, `iterate-plan`, `describe-pr`, `founder-mode`, `research-codebase`, `debug`, `create-handoff`, `resume-handoff`, and more.
-
----
-
-## Upgrading from Walk
-
-If you've been using the Walk scaffold:
-
-1. Copy `review-pr.md` from this repo → `.claude/commands/project/`
-2. Copy `stakeholder-alignment.md` and `compound.md` → `.claude/commands/project/`
-3. Copy `scripts/compound_config.py`
-4. Set up `.env` with Clarity API credentials
-5. Add the extra context docs (JTBD.md, ICP.md, etc.) to `docs/.context/`
-
----
-
-## Example
-
-See `docs/prs/_archive/2026-01-15-PR-001-add-user-registration/` for a complete filled example.
-
----
-
-## Environment
-
-```bash
-# .env (copy from .env.example)
-CLARITY_API_KEY=your-key
-CLARITY_USER_ID=your-uuid
-CLARITY_API_URL=https://your-api.onrender.com
-```
-
-See `GETTING-STARTED.md` for full API setup guide.
-
----
-
-MIT License. Built by [Epistemic Me](https://github.com/Epistemic-Me).
+MIT

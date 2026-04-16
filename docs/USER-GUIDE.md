@@ -2,7 +2,7 @@
 
 > Works with **any project management tool** — Linear, Jira, Shortcut, GitHub Issues. The workflow is PM-tool-agnostic.
 >
-> **Repos**: [Walk (Level 1-2)](https://github.com/Epistemic-Me/ai-native-dev-scaffold) | [Run (Level 3-4)](https://github.com/Epistemic-Me/ai-native-dev-scaffold-compound)
+> **Repos**: [Walk (Level 1-2)](https://github.com/Epistemic-Me/ai-native-dev-scaffold-run) | [Run (Level 3-4)](https://github.com/Epistemic-Me/ai-native-dev-scaffold-sprint)
 
 ---
 
@@ -20,7 +20,7 @@ This guide covers the PR workflow, repo structure, documentation system, CI/CD g
 
 ```bash
 # Clone the scaffold
-git clone https://github.com/Epistemic-Me/ai-native-dev-scaffold.git my-project
+git clone https://github.com/Epistemic-Me/ai-native-dev-scaffold-run.git my-project
 cd my-project && rm -rf .git && git init && git add -A && git commit -m "init"
 
 # Start your first PR
@@ -907,7 +907,7 @@ A: They replace the "project context" portion of a wiki. They don't replace runb
 ### Scaling — Enterprise Monorepo with Domain Teams
 
 **Q: Does this work for a 20-person team?**
-A: Yes. See Part 13 below — full Dayforce-scale example with domain teams, shared NuGet layers, and 200+ engineers.
+A: Yes. See Part 13 below — full an enterprise software company-scale example with domain teams, shared NuGet layers, and 200+ engineers.
 
 **Q: Does this work for monorepos?**
 A: Yes — monorepos are actually the BEST fit because cross-domain context docs prevent the tribal knowledge silos that kill large orgs. See Part 13 for the exact directory structure.
@@ -1051,16 +1051,16 @@ compound_extract.json → self-model API
 
 ---
 
-## Part 13: Scaling to Enterprise Monorepo — Dayforce Example
+## Part 13: Scaling to Enterprise Monorepo — an enterprise software company Example
 
-> This section uses Dayforce (7,000+ customers, 200+ engineers, 15+ year codebase) as a concrete example. Dayforce has domain teams (Payroll, WFM, Benefits, Core HR, Recruiting) with sub-domain teams (Payroll France, WFM Scheduling, WFM Compliance). The codebase is a monorepo with a deep NuGet dependency chain between a monolith and microservices.
+> This section uses an enterprise software company (thousands of enterprise customers, 200+ engineers, 15+ year codebase) as a concrete example. an enterprise software company has domain teams (Payroll, the high-leverage domain team, Benefits, Core HR, Recruiting) with sub-domain teams (a region-specific payroll subdomain, the high-leverage domain team Scheduling, the high-leverage domain team Compliance). The codebase is a monorepo with a deep NuGet dependency chain between a monolith and microservices.
 > 
 > Substitute your own domain/team names. The pattern is the same.
 
 ### Monorepo Directory Structure
 
 ```
-dayforce/
+enterprise-monorepo/
 ├── CLAUDE.md                              # Root-level: cross-domain instructions
 ├── .claude/
 │   ├── commands/                          # Shared commands all teams use
@@ -1110,22 +1110,22 @@ dayforce/
 │   │   │       └── INTEGRATION_POINTS.md  # What other domains call into Payroll
 │   │   ├── src/
 │   │   │   ├── core/                      # Shared payroll logic
-│   │   │   ├── france/                    # Sub-domain: Payroll France
-│   │   │   ├── us/                        # Sub-domain: Payroll US
-│   │   │   └── canada/                    # Sub-domain: Payroll Canada
+│   │   │   ├── france/                    # Sub-domain: a region-specific payroll subdomain
+│   │   │   ├── us/                        # Sub-domain: a region-specific payroll subdomain for US
+│   │   │   └── canada/                    # Sub-domain: a region-specific payroll subdomain for Canada
 │   │   └── tests/
 │   │
 │   ├── wfm/
-│   │   ├── CLAUDE.md                      # WFM-specific instructions
+│   │   ├── CLAUDE.md                      # the high-leverage domain team-specific instructions
 │   │   ├── docs/
 │   │   │   └── .context/
 │   │   │       ├── ARCHITECTURE.md        # Punch engine, accruals, scheduling
-│   │   │       ├── KNOWN_ISSUES.md        # WFM-specific: accrual going negative, etc.
+│   │   │       ├── KNOWN_ISSUES.md        # the high-leverage domain team-specific: accrual going negative, etc.
 │   │   │       ├── COMPLIANCE.md          # Labor law: overtime, meal breaks, CA rules
 │   │   │       ├── DOMAIN_MODEL.md        # Punch, Schedule, Accrual, PayRule, JobStep
-│   │   │       └── INTEGRATION_POINTS.md  # Payroll reads WFM data for pay calc
+│   │   │       └── INTEGRATION_POINTS.md  # Payroll reads the high-leverage domain team data for pay calc
 │   │   ├── src/
-│   │   │   ├── core/                      # Core 1 + Core 4 (shared WFM compliance)
+│   │   │   ├── core/                      # Core 1 + Core 4 (shared the high-leverage domain team compliance)
 │   │   │   ├── scheduling/               # Sub-domain: Scheduling
 │   │   │   └── accruals/                 # Sub-domain: Accrual engine
 │   │   └── tests/
@@ -1163,17 +1163,17 @@ Claude Code reads CLAUDE.md files from root → domain → sub-domain. Each leve
 
 ```
 Root CLAUDE.md:
-  "This is the Dayforce monorepo. 200+ engineers across 5 domains.
+  "This is the an enterprise software company monorepo. 200+ engineers across 5 domains.
    Never push to main. Always create PR docs.
    Read docs/.context/ for cross-domain architecture.
    When working in a domain, ALSO read domains/{name}/CLAUDE.md."
 
 domains/wfm/CLAUDE.md:
-  "This is the WFM (Workforce Management) domain.
-   Owner: WFM Core team (Dhirendra, 7 devs + 1 QA).
+  "This is the the high-leverage domain team (Workforce Management) domain.
+   Owner: a high-leverage domain team (a senior domain engineer, 7 devs + 1 QA).
    Key entities: Punch, Schedule, Accrual, PayRule, JobStep.
    90% of work is compliance-driven (labor law changes).
-   Read domains/wfm/docs/.context/ for WFM-specific architecture.
+   Read domains/wfm/docs/.context/ for the high-leverage domain team-specific architecture.
    
    IMPORTANT: Changes to shared/src/interfaces/ require 30+ NuGet
    package updates. See shared/docs/.context/NUGET_DEPENDENCY_MAP.md.
@@ -1202,29 +1202,29 @@ domains/payroll/docs/.context/COMPLIANCE.md:
 # .github/CODEOWNERS
 
 # Cross-domain changes require platform team review
-/docs/.context/                  @dayforce/platform-architects
-/shared/                         @dayforce/platform-architects
-/.github/workflows/              @dayforce/platform-architects
+/docs/.context/                  @your-org/platform-architects
+/shared/                         @your-org/platform-architects
+/.github/workflows/              @your-org/platform-architects
 
 # Domain-specific routing
-/domains/payroll/                @dayforce/payroll-team
-/domains/payroll/src/france/     @dayforce/payroll-france
-/domains/wfm/                    @dayforce/wfm-core
-/domains/wfm/src/scheduling/     @dayforce/wfm-scheduling
-/domains/benefits/               @dayforce/benefits-team
-/domains/core-hr/                @dayforce/core-hr-team
+/domains/payroll/                @your-org/payroll-team
+/domains/payroll/src/france/     @your-org/payroll-france
+/domains/wfm/                    @your-org/wfm-core
+/domains/wfm/src/scheduling/     @your-org/wfm-scheduling
+/domains/benefits/               @your-org/benefits-team
+/domains/core-hr/                @your-org/core-hr-team
 
 # PR docs — reviewed by the domain team that owns the feature
-/docs/prs/*payroll*              @dayforce/payroll-team
-/docs/prs/*wfm*                  @dayforce/wfm-core
-/docs/prs/*benefit*              @dayforce/benefits-team
+/docs/prs/*payroll*              @your-org/payroll-team
+/docs/prs/*wfm*                  @your-org/wfm-core
+/docs/prs/*benefit*              @your-org/benefits-team
 ```
 
 ### Domain-Scoped CI with Path Filtering
 
 ```yaml
 # .github/workflows/wfm-tests.yml
-name: WFM Tests
+name: the high-leverage domain team Tests
 on:
   pull_request:
     paths:
@@ -1237,9 +1237,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Run WFM unit tests
+      - name: Run the high-leverage domain team unit tests
         run: dotnet test domains/wfm/tests/
-      - name: Run WFM selenium suite
+      - name: Run the high-leverage domain team selenium suite
         run: dotnet test domains/wfm/tests/e2e/ --filter "Category=Compliance"
 ```
 
@@ -1250,18 +1250,18 @@ jobs:
 | `docs/.context/ARCHITECTURE-TAXONOMY.md` | Platform Architects | Cross-domain | Quarterly or after major refactor |
 | `docs/.context/COMPLIANCE-REQUIREMENTS.md` | Compliance Dept liaison | Cross-domain | When new law changes are identified |
 | `docs/.context/KNOWN_ISSUES.md` (root) | Platform Architects | Cross-domain | When cross-domain bugs found |
-| `domains/wfm/docs/.context/ARCHITECTURE.md` | WFM Tech Lead | WFM | After WFM architectural decisions |
-| `domains/wfm/docs/.context/COMPLIANCE.md` | WFM PM + Compliance | WFM | When labor law changes per jurisdiction |
-| `domains/wfm/docs/.context/KNOWN_ISSUES.md` | WFM QA Lead | WFM | Sprint retrospectives |
-| `domains/wfm/docs/.context/DOMAIN_MODEL.md` | WFM Dev Lead (Dhirendra) | WFM | When entities/relationships change |
-| `domains/payroll/docs/.context/COMPLIANCE.md` | Payroll PM + Compliance | Payroll | When tax/pay law changes |
+| `domains/wfm/docs/.context/ARCHITECTURE.md` | the high-leverage domain team Tech Lead | the high-leverage domain team | After the high-leverage domain team architectural decisions |
+| `domains/wfm/docs/.context/COMPLIANCE.md` | the high-leverage domain team PM + Compliance | the high-leverage domain team | When labor law changes per jurisdiction |
+| `domains/wfm/docs/.context/KNOWN_ISSUES.md` | the high-leverage domain team QA Lead | the high-leverage domain team | Sprint retrospectives |
+| `domains/wfm/docs/.context/DOMAIN_MODEL.md` | the high-leverage domain team Dev Lead (a senior domain engineer) | the high-leverage domain team | When entities/relationships change |
+| `domains/payroll/docs/.context/COMPLIANCE.md` | a region-specific payroll subdomain for PM + Compliance | Payroll | When tax/pay law changes |
 | `shared/docs/.context/NUGET_DEPENDENCY_MAP.md` | Platform Architects | Shared | When dependency chain changes |
 
-### Real Dayforce Scenarios
+### Real an enterprise software company Scenarios
 
-#### Scenario 1: California Overtime Compliance Change (WFM → Payroll)
+#### Scenario 1: California Overtime Compliance Change (the high-leverage domain team → Payroll)
 
-**What happens**: California changes overtime rules. Compliance dept raises a MIM (Major Incident Management) call, which generates a Jira ticket linked to the WFM Core team.
+**What happens**: California changes overtime rules. Compliance dept raises a MIM (Major Incident Management) call, which generates a Jira ticket linked to the a high-leverage domain team.
 
 **Old world**: PM tells dev in grooming. Dev starts coding. Discovers mid-sprint that the change touches payroll calculations too. Needs NuGet interface update. 30 PRs. Sprint blown.
 
@@ -1276,9 +1276,9 @@ jobs:
 4. **IMPLEMENTATION-PLAN.md** — "Option A (workaround) for this sprint. Create ADR documenting the NuGet tech debt for next sprint."
 5. **Decision surfaces BEFORE code** — PM, compliance, and dev align on scope in research phase, not mid-sprint.
 
-#### Scenario 2: Payroll France New Hire (Subdomain Onboarding)
+#### Scenario 2: a region-specific payroll subdomain New Hire (Subdomain Onboarding)
 
-**What happens**: A new developer joins the Payroll France subdomain. Today: 2-3 years to become productive (Dhirendra's number for WFM Core).
+**What happens**: A new developer joins the a regional subdomain. Today: 2-3 years to become productive (a senior domain engineer's number for a high-leverage domain team).
 
 **Old world**: Shadow senior devs for months. Read wiki pages that are 3 years stale. Make mistakes, get corrected, slowly accumulate tribal knowledge.
 
@@ -1290,7 +1290,7 @@ jobs:
    - `domains/payroll/docs/.context/ARCHITECTURE.md` → calc engine, tax tables
    - `domains/payroll/docs/.context/COMPLIANCE.md` → France section (35h week, 13th month, RTT)
    - `domains/payroll/docs/.context/DOMAIN_MODEL.md` → key entities
-2. New dev asks Claude: "What are the last 5 PRs that touched Payroll France?"
+2. New dev asks Claude: "What are the last 5 PRs that touched a region-specific payroll subdomain?"
    - Claude reads `docs/.context/ACTIVE_PRS.md`, finds the PR folders, reads their RESEARCH.md files
    - New dev understands recent changes WITH the reasoning behind them
 3. New dev gets their first ticket. `/start-pr` creates the scaffold. They iterate on RESEARCH.md with Claude reading the France-specific compliance context. Claude catches: "Note: RTT accrual rules changed in 2025 — see ADR-047."
@@ -1298,7 +1298,7 @@ jobs:
 
 #### Scenario 3: Cross-Domain NuGet Interface Change
 
-**What happens**: A shared interface needs a new method. Touches payroll, WFM, and core-hr. Historically: 30 PRs, each needing its own review, each touching a NuGet package.
+**What happens**: A shared interface needs a new method. Touches payroll, the high-leverage domain team, and core-hr. Historically: 30 PRs, each needing its own review, each touching a NuGet package.
 
 **New world with this workflow**:
 
@@ -1307,7 +1307,7 @@ jobs:
    - AI reads `shared/docs/.context/NUGET_DEPENDENCY_MAP.md` and generates the exact PR sequence
 2. **Multi-PR initiative** broken into stages:
    - Stage 1 (PR-4530): Add method to shared interface + update shared NuGet packages
-   - Stage 2 (PR-4531): WFM service consumes new method
+   - Stage 2 (PR-4531): the high-leverage domain team service consumes new method
    - Stage 3 (PR-4532): Payroll service consumes new method
    - Stage 4 (PR-4533): Monolith bridge updated
 3. Each PR has its own docs folder, but RESEARCH.md links to the brainstorm
@@ -1316,16 +1316,16 @@ jobs:
 
 #### Scenario 4: PM Musical Chairs (Knowledge Preserved)
 
-**What happens**: PMs rotate between domains (the "musical chairs" Dhirendra described). Old PM knew the SpaceX feature existed. New PM didn't. 3 user stories scrapped after hours of grooming.
+**What happens**: PMs rotate between domains (the "musical chairs" a senior domain engineer described). Old PM knew the SpaceX feature existed. New PM didn't. 3 user stories scrapped after hours of grooming.
 
-**New world**: The new PM reads `domains/wfm/docs/.context/ARCHITECTURE.md` + recent ADRs + PR paper trails. Asks Claude: "What features does WFM currently support for custom scheduling rules?" Claude reads the context docs and PR history, surfaces the existing SpaceX feature. **Hours of wasted grooming prevented.**
+**New world**: The new PM reads `domains/wfm/docs/.context/ARCHITECTURE.md` + recent ADRs + PR paper trails. Asks Claude: "What features does the high-leverage domain team currently support for custom scheduling rules?" Claude reads the context docs and PR history, surfaces the existing SpaceX feature. **Hours of wasted grooming prevented.**
 
 ### Scaling FAQ
 
 **Q: Who owns the root-level context docs vs domain-level?**
 A: Platform architects own root `docs/.context/`. Each domain's tech lead owns `domains/{name}/docs/.context/`. PMs own COMPLIANCE.md jointly with the compliance department. See the ownership matrix above.
 
-**Q: What about the compliance department? They drive 90% of WFM features.**
+**Q: What about the compliance department? They drive 90% of the high-leverage domain team features.**
 A: Compliance gets their own section in each domain's COMPLIANCE.md. When a law changes, the compliance liaison updates the relevant domain's COMPLIANCE.md. This becomes input to RESEARCH.md when a dev picks up the ticket. The compliance context is now WRITTEN DOWN, not just in someone's head.
 
 **Q: How do we handle the NuGet dependency chain problem?**
@@ -1341,7 +1341,7 @@ A: Scrum stories get the full PR lifecycle (RESEARCH → TEST-STRATEGY → IMPL-
 A: TEST-STRATEGY.md covers ALL test types. The test matrix has a "File" column — put Selenium tests there alongside unit tests. The AC coverage table doesn't care about test type, it cares about coverage: "Is AC3 tested by at least one test, regardless of whether it's unit, integration, or E2E?"
 
 **Q: How do we get 7 teams to adopt this simultaneously?**
-A: Don't. Pick one team (ideally WFM Core — they already have high automation coverage and domain experts). Run the workflow for 2 sprints. Measure: sprint predictability, regression rate, onboarding time for new devs. Then show the results to other teams. Adoption follows demonstrated value, not mandates.
+A: Don't. Pick one team (ideally a high-leverage domain team — they already have high automation coverage and domain experts). Run the workflow for 2 sprints. Measure: sprint predictability, regression rate, onboarding time for new devs. Then show the results to other teams. Adoption follows demonstrated value, not mandates.
 
 ---
 
@@ -1395,4 +1395,4 @@ At Run level (Level 3-4), also runs before step 4:
 
 ---
 
-*Last updated: 2026-04-10. Ships with [ai-native-dev-scaffold](https://github.com/Epistemic-Me/ai-native-dev-scaffold).*
+*Last updated: 2026-04-10. Ships with [ai-native-dev-scaffold-run](https://github.com/Epistemic-Me/ai-native-dev-scaffold-run).*
